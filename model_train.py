@@ -17,7 +17,7 @@ from albert import load_brightmart_albert_zh_checkpoint
 # 建议长度<=510
 maxlen = 256
 BATCH_SIZE = 8
-dict_path = './albert_base_zh_additional_36k_steps/vocab.txt'
+dict_path = './albert_tiny/vocab.txt'
 
 
 token_dict = {}
@@ -84,7 +84,7 @@ class DataGenerator:
 
 # 构建模型
 def create_cls_model(num_labels):
-    albert_model = load_brightmart_albert_zh_checkpoint("albert_base_zh_additional_36k_steps", training=False)
+    albert_model = load_brightmart_albert_zh_checkpoint("albert_tiny", training=False)
 
     for layer in albert_model.layers:
         layer.trainable = True
